@@ -23,19 +23,23 @@ public class Main {
 				System.out.print("Origem: ");
 				XadrezPosicao origem = UI.lerXadrezPosicao(sc);
 
+				boolean[][] movimentosPossiveis = partidaXadrez.movimentosPossiveis(origem);
+				UI.limparTela();
+				UI.printBoard(partidaXadrez.getPecas(), movimentosPossiveis);
 				System.out.println();
 				System.out.print("Destino: ");
 				XadrezPosicao desino = UI.lerXadrezPosicao(sc);
 
 				PecaXadrez pecaCapturada = partidaXadrez.performeXadrezMove(origem, desino);
-			} catch (XadrezExcecao e) {
+			} 
+			catch (XadrezExcecao e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
-			} catch (InputMismatchException e) {
+			} 
+			catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			}
 		}
 	}
-
 }
