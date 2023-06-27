@@ -41,7 +41,11 @@ public class Main {
 				
 				if(partidaXadrez.getPromovido() != null) {
 					System.out.print("Insir a letra da peça a ser promovida (T/C/B/Q): ");
-					String tipo = sc.nextLine();
+					String tipo = sc.nextLine().toUpperCase();
+					while(!tipo.equals("B") && !tipo.equals("C") && !tipo.equals("T") && !tipo.equals("Q")) {
+						System.out.print("Valor inválido! Insir a letra da peça a ser promovida (T/C/B/Q): ");
+						tipo = sc.nextLine().toUpperCase();
+					}
 					partidaXadrez.realocarPecaPromovida(tipo);
 				}
 			} 
